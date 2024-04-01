@@ -1,0 +1,5 @@
+../pet_projects/rps_game/.venv
+.idea
+.pytest_cache
+__pycache__
+/rps_front/node_modules

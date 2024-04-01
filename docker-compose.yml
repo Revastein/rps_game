@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ../pet_projects/rps_game
+      dockerfile: Dockerfile
+      target: backend-build
+    ports:
+      - "8000:8000"
+    networks:
+      - rps_network
+
+  frontend:
+    build:
+      context: ../pet_projects/rps_game
+      dockerfile: Dockerfile
+      target: frontend-build
+    ports:
+      - "8080:8080"
+    networks:
+      - rps_network
+
+networks:
+  rps_network:
+    driver: bridge

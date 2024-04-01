@@ -1,0 +1,12 @@
+.dockerignore
+Dockerfile
+
+.venv
+venv
+env
+
+**/*.md
+**/*.yml
+**/*.yam
+
+README.MD
