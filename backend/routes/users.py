@@ -2,13 +2,16 @@ from typing import List, Annotated
 
 from fastapi import APIRouter, Depends
 
-from backend.models.schemas import User, UserId, UserBase, UserStatUpdate, UserAuthUpdate
+from backend.models.schemas import (
+    User,
+    UserId,
+    UserBase,
+    UserStatUpdate,
+    UserAuthUpdate,
+)
 from backend.service.user_service import UserViews
 
-router = APIRouter(
-    prefix="/v1",
-    tags=["Users"]
-)
+router = APIRouter(prefix="/v1", tags=["Users"])
 
 
 @router.post("/register", response_model=UserId, status_code=201)
