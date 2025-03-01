@@ -1,9 +1,11 @@
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from contextlib import asynccontextmanager
-from models.database import create_tables
-from routes.users import router as users_route
-from routes.lobby import router as lobby_route
+
+from backend.models.database import create_tables
+from backend.routes.lobby import router as lobby_route
+from backend.routes.users import router as users_route
 
 
 @asynccontextmanager

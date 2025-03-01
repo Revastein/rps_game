@@ -1,11 +1,13 @@
-import os
-import string
-import random
 import asyncio
+import os
+import random
+import string
+
 import pytest
-from main import app
 from fastapi.testclient import TestClient
-from models.database import create_tables
+
+from backend.main import app
+from backend.models.database import create_tables
 
 
 @pytest.fixture(scope='session', autouse=True)

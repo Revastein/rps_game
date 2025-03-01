@@ -1,8 +1,9 @@
 import uuid
+
 from fastapi import HTTPException
 
-from models.database import Session, UserOrm
-from models.schemas import Lobby, LobbyPlayer
+from backend.models.database import Session, UserOrm
+from backend.models.schemas import Lobby, LobbyPlayer
 
 
 class LobbyView:

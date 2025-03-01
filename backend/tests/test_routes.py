@@ -1,5 +1,6 @@
-from config import *
 from unittest.mock import patch
+
+from config import *
 
 
 class TestUsers:

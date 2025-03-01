@@ -1,8 +1,10 @@
 from typing import List
-from controllers.lobby import LobbyView
-from models.database import Session, UserOrm
+
 from fastapi import APIRouter, HTTPException
-from models.schemas import Queue, GameResult, Lobby
+
+from backend.models.database import Session, UserOrm
+from backend.models.schemas import Queue, GameResult, Lobby
+from backend.usecases.lobby import LobbyView
 
 router = APIRouter(tags=["Lobby"])
 

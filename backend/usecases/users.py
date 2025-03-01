@@ -1,9 +1,11 @@
 from typing import List
-from sqlalchemy import select
+
 from fastapi import HTTPException
-from models.database import Session, UserOrm
-from secure import verify_password, pwd_context
-from models.schemas import UserBase, User, UserStatUpdate, UserAuthUpdate
+from sqlalchemy import select
+
+from backend.models.database import Session, UserOrm
+from backend.models.schemas import UserBase, User, UserStatUpdate, UserAuthUpdate
+from backend.secure import verify_password, pwd_context
 
 
 class UserViews:

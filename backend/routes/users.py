@@ -1,7 +1,9 @@
 from typing import List, Annotated
+
 from fastapi import APIRouter, Depends
-from models.schemas import User, UserId, UserBase, UserStatUpdate, UserAuthUpdate
-from controllers.users import UserViews
+
+from backend.models.schemas import User, UserId, UserBase, UserStatUpdate, UserAuthUpdate
+from backend.usecases.users import UserViews
 
 router = APIRouter(
     tags=["Users"]
