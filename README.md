@@ -30,9 +30,9 @@ The frontend of the application is built using Vue.js, a JavaScript framework fo
 
 ### Structure
 
-- `rps_front`: Contains the frontend code.
-    - `rps_front/public`: Contains the static assets and HTML template.
-    - `rps_front/src`: Contains the Vue.js components, styles, and scripts.
+- `frontend`: Contains the frontend code.
+    - `frontend/public`: Contains the static assets and HTML template.
+    - `frontend/src`: Contains the Vue.js components, styles, and scripts.
 
 ### Components
 
@@ -44,11 +44,11 @@ The frontend of the application is built using Vue.js, a JavaScript framework fo
 
 ### Scripts
 
-- `rps_front/src/scripts`: Contains the scripts used by Vue.js components.
+- `frontend/src/scripts`: Contains the scripts used by Vue.js components.
 
 ### Styles
 
-- `rps_front/assets/css`: Contains the CSS styles for the frontend components.
+- `frontend/assets/css`: Contains the CSS styles for the frontend components.
 
 ## Usage
 
