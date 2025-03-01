@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.models.database import create_tables
 from backend.routes.lobby import router as lobby_route
+from backend.routes.queue import router as queue_route
 from backend.routes.users import router as users_route
 
 
@@ -26,3 +27,4 @@ app.add_middleware(
 
 app.include_router(users_route)
 app.include_router(lobby_route)
+app.include_router(queue_route)

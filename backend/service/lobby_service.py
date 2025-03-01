@@ -1,13 +1,9 @@
 from fastapi import HTTPException
 
-from backend.manager.lobby_manager import lobby_manager
 from backend.models.database import Session, UserOrm
 
 
 class LobbyView:
-    @classmethod
-    async def check_queue(cls):
-        lobby_manager.create_lobby_from_queue()
 
     @classmethod
     def determine_winner(
