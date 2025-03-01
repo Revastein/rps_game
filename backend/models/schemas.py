@@ -39,15 +39,19 @@ class Queue(BaseModel):
 
 
 class GameResult(BaseModel):
-    winner: str
+    winner_id: Optional[int] = None
+    winner_username: Optional[str] = None
+    winner: Optional[str] = None
 
 
 class LobbyPlayer(BaseModel):
     user_id: int
-    choice: str = None
+    choice: Optional[str] = None
 
 
 class Lobby(BaseModel):
     lobby_id: str
     players: List[LobbyPlayer]
     rematch_accepted: List[int] = []
+    winner_id: Optional[int] = None
+    winner_username: Optional[str] = None
