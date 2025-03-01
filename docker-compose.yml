@@ -3,7 +3,7 @@ version: '3.8'
 services:
   backend:
     build:
-      context: ../pet_projects/rps_game
+      context: .
       dockerfile: Dockerfile
       target: backend-build
     ports:
@@ -13,7 +13,7 @@ services:
 
   frontend:
     build:
-      context: ../pet_projects/rps_game
+      context: .
       dockerfile: Dockerfile
       target: frontend-build
     ports:
