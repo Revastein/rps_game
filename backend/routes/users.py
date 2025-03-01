@@ -3,9 +3,10 @@ from typing import List, Annotated
 from fastapi import APIRouter, Depends
 
 from backend.models.schemas import User, UserId, UserBase, UserStatUpdate, UserAuthUpdate
-from backend.usecases.users import UserViews
+from backend.service.user_service import UserViews
 
 router = APIRouter(
+    prefix="/v1",
     tags=["Users"]
 )
 

@@ -3,10 +3,10 @@ from typing import List
 from fastapi import APIRouter, HTTPException
 
 from backend.models.database import Session, UserOrm
-from backend.models.schemas import Queue, GameResult, Lobby
-from backend.usecases.lobby import LobbyView
+from backend.models.schemas import GameResult, Lobby, Queue
+from backend.service.lobby_service import LobbyView
 
-router = APIRouter(tags=["Lobby"])
+router = APIRouter(prefix="/v1", tags=["Lobby"])
 
 queue = []
 lobbies = []
