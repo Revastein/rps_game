@@ -9,7 +9,7 @@ from backend.routes.users import router as users_route
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(_: FastAPI):
     await create_tables()
     yield
 
