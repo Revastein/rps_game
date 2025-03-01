@@ -12,9 +12,13 @@ class UserViews:
     @classmethod
     async def register(cls, data: UserBase) -> int:
         async with Session() as session:
-            user = await session.execute(UserOrm.__table__.select().where(UserOrm.username == data.username))
+            user = await session.execute(
+                UserOrm.__table__.select().where(UserOrm.username == data.username)
+            )
             if user.scalar_one_or_none():
-                raise HTTPException(status_code=409, detail="User with this login already exists")
+                raise HTTPException(
+                    status_code=409, detail="User with this login already exists"
+                )
             user_dict = data.model_dump()
             user = UserOrm(**user_dict)
             user.password = pwd_context.hash(data.password)
@@ -26,7 +30,9 @@ class UserViews:
     @classmethod
     async def login(cls, username: str, password: str) -> int:
         async with Session() as session:
-            user = await session.execute(select(UserOrm).where(UserOrm.username == username))
+            user = await session.execute(
+                select(UserOrm).where(UserOrm.username == username)
+            )
             user = user.scalar_one_or_none()
             if not user:
                 raise HTTPException(status_code=404, detail="User not found")
@@ -65,7 +71,9 @@ class UserViews:
             user = await session.get(UserOrm, user_id)
             if not user:
                 raise HTTPException(status_code=404, detail="User not found")
-            existing_user = await session.execute(select(UserOrm).where(UserOrm.username == data.username))
+            existing_user = await session.execute(
+                select(UserOrm).where(UserOrm.username == data.username)
+            )
             existing_user = existing_user.scalar_one_or_none()
             if existing_user and existing_user.user_id != user_id:
                 raise HTTPException(status_code=400, detail="Username already exists")
