@@ -1,13 +1,14 @@
 from typing import List
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 
 from backend.manager.lobby_manager import lobby_manager
 from backend.models.database import Session, UserOrm
 from backend.models.schemas import GameResult, Lobby
+from backend.secure.auth import get_current_user
 from backend.service.lobby_service import LobbyView
 
-router = APIRouter(prefix="/v1", tags=["Lobby"])
+router = APIRouter(prefix="/v1", tags=["Lobby"], dependencies=[Depends(get_current_user)])
 
 
 @router.get("/get_all_lobbies", response_model=List[Lobby], status_code=200)

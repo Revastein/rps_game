@@ -1,12 +1,13 @@
 from typing import List
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 
 from backend.manager.lobby_manager import lobby_manager
 from backend.models.database import Session, UserOrm
 from backend.models.schemas import Queue
+from backend.secure.auth import get_current_user
 
-router = APIRouter(prefix="/v1", tags=["Queue"])
+router = APIRouter(prefix="/v1", tags=["Queue"], dependencies=[Depends(get_current_user)])
 
 
 @router.post("/join_queue", response_model=Queue, status_code=201)

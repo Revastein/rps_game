@@ -9,9 +9,10 @@ from backend.models.schemas import (
     UserStatUpdate,
     UserAuthUpdate,
 )
+from backend.secure.auth import get_current_user
 from backend.service.user_service import UserViews
 
-router = APIRouter(prefix="/v1", tags=["Users"])
+router = APIRouter(prefix="/v1", tags=["Users"], dependencies=[Depends(get_current_user)])
 
 
 @router.post("/register", response_model=UserId, status_code=201)
