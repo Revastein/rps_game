@@ -3,7 +3,7 @@ import uuid
 from fastapi import HTTPException
 
 from backend.models.database import Session, UserOrm
-from backend.models.schemas import Lobby, LobbyPlayer
+from backend.models.schemas import LobbyPlayer, Lobby
 
 
 class LobbyView:

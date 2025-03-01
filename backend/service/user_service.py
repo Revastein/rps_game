@@ -54,7 +54,7 @@ class UserViews:
             user = await session.get(UserOrm, user_id)
             if not user:
                 raise HTTPException(status_code=404, detail="User not found")
-            for field, value in data.dict(exclude_unset=True).items():
+            for field, value in data.model_dump(exclude_unset=True).items():
                 if value is not None:
                     setattr(user, field, value)
             await session.commit()
@@ -69,7 +69,7 @@ class UserViews:
             existing_user = existing_user.scalar_one_or_none()
             if existing_user and existing_user.user_id != user_id:
                 raise HTTPException(status_code=400, detail="Username already exists")
-            for field, value in data.dict(exclude_unset=True).items():
+            for field, value in data.model_dump(exclude_unset=True).items():
                 if field == "password":
                     if value:
                         value = pwd_context.hash(value)
