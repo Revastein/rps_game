@@ -10,6 +10,8 @@ class UserBase(BaseModel):
 
 class User(UserBase):
     user_id: int
+    role: str = "user"
+    status: str = "idle"
     rating: int = 0
     games_played: int = 0
     wins: int = 0

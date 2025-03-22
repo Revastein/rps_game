@@ -1,0 +1,108 @@
+.register-wrapper {
+  max-width: 550px;
+  margin: 30px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  transition: 0.3s ease-in-out;
+}
+
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.register-form input {
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid #fff;
+  background: transparent;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-size: 18px;
+}
+
+.register-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+
+.register-form input:focus {
+  border-color: #ff4081;
+  outline: none;
+  box-shadow: 0 0 15px #ff4081;
+}
+
+.register-form button {
+  background: linear-gradient(90deg, #ff4b5c, #ff7eb3);
+  color: white;
+  border: none;
+  padding: 20px 30px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: 'Press Start 2P', cursive;
+  transition: 0.3s;
+  box-shadow: 0 0 15px #ff4b5c;
+}
+
+.register-form button:hover {
+  background: linear-gradient(90deg, #ff7eb3, #ff4b5c);
+  box-shadow: 0 0 25px #ff7eb3;
+}
+
+.register-form p {
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 5px;
+}
+
+.register-form p:not(.error-message):not(.success-message):hover {
+  color: #ffeb3b;
+  text-shadow: 0 0 5px #ffeb3b;
+}
+
+.register-form p.error-message {
+  color: red;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+  padding: 5px 0;
+  text-align: center;
+  width: 100%;
+  min-height: 20px;
+  overflow: hidden;
+  display: block;
+}
+
+.success-message {
+  color: green;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+  padding: 2px 0;
+  text-align: left;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}

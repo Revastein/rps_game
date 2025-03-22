@@ -1,7 +1,7 @@
-import {createApp} from 'vue';
+import { createApp } from 'vue';
 import App from './App.vue';
 import axios from 'axios';
-import router from './router/router';
+import router from './router/router.js';
 
 axios.defaults.baseURL = 'http://' + window.location.hostname + ':8000';
 

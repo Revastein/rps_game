@@ -1,0 +1,20 @@
+@keyframes move-bg {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Глобальный стиль страницы с тёмно-фиолетовым градиентом */
+body {
+  background: linear-gradient(45deg, #2a0845, #1c1c3c);
+  background-size: 400% 400%;
+  animation: move-bg 10s infinite alternate;
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}

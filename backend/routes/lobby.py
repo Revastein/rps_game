@@ -1,14 +1,35 @@
+import json
 from typing import List
 
 from fastapi import APIRouter, Depends, HTTPException
 
 from backend.manager.lobby_manager import lobby_manager
+from backend.manager.user_manager import user_manager
 from backend.models.database import Session, UserOrm
 from backend.models.schemas import GameResult, Lobby
+from backend.routes.websocket import manager as ws_manager
 from backend.secure.auth import get_current_user
 from backend.service.lobby_service import LobbyView
 
-router = APIRouter(prefix="/v1", tags=["Lobby"], dependencies=[Depends(get_current_user)])
+router = APIRouter(tags=["Lobby"], dependencies=[Depends(get_current_user)])
+
+
+@router.post("/create_lobby", status_code=201)
+async def create_lobby():
+    new_lobby = lobby_manager.create_lobby_from_queue()
+    if not new_lobby:
+        raise HTTPException(status_code=400, detail="Not enough players in queue")
+
+    for player in new_lobby.players:
+        await user_manager.update_status(player.user_id, "in_lobby")
+
+    await ws_manager.broadcast(json.dumps({
+        "event": "lobby_created",
+        "lobby_id": new_lobby.lobby_id,
+        "players": [player.user_id for player in new_lobby.players]
+    }))
+
+    return new_lobby
 
 
 @router.get("/get_all_lobbies", response_model=List[Lobby], status_code=200)

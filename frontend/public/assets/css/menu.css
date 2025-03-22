@@ -1,0 +1,162 @@
+/* Заголовок "Rock Paper Scissors" в верхнем левом углу */
+.game-title {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff4b5c, #ffeb3b, #4b7bff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Контейнер для таблицы лидеров и данных игрока */
+.menu-content {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1000px;
+    margin-top: 80px;
+}
+
+/* Таблица лидеров — справа */
+.leaderboard {
+    position: absolute;
+    top: 35%;
+    right: 30px;
+    flex: 1;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+    text-align: left;
+}
+
+.leaderboard h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ffeb3b;
+    text-shadow: 0 0 5px #ffeb3b;
+}
+
+.leaderboard-entry {
+    justify-content: space-between;
+    padding: 10px 0;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.current-player-row {
+    font-weight: bold;
+    color: #ffeb3b;
+    margin-bottom: 10px;
+}
+
+/* Информация об игроке — слева */
+.player-info {
+    position: absolute;
+    top: 35%;
+    left: 30px;
+    flex: 1;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+    text-align: left;
+}
+
+.player-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ffeb3b;
+    text-shadow: 0 0 5px #ffeb3b;
+}
+
+.player-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.player-info li {
+    font-size: 1rem;
+    padding: 6px 0;
+    color: white;
+}
+
+/* Общий стиль кнопки */
+.start-button {
+    position: absolute;
+    bottom: 50px;
+    left: 30px;
+    background: linear-gradient(90deg, #28a745, #34d058); /* Зеленый градиент */
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    font-size: 40px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', cursive;
+    transition: 0.3s;
+    box-shadow: 0 0 20px #28a745;
+}
+
+.start-button:hover {
+    background: linear-gradient(90deg, #34d058, #28a745);
+    box-shadow: 0 0 25px #34d058;
+}
+
+/* ❌ Состояние кнопки "Выйти из очереди" — красный градиент */
+.start-button.in-queue {
+    background: linear-gradient(90deg, #dc3545, #ff4b5c); /* Красный градиент */
+    box-shadow: 0 0 25px #dc3545;
+}
+
+.start-button.in-queue:hover {
+    background: linear-gradient(90deg, #ff4b5c, #dc3545);
+    box-shadow: 0 0 25px #ff4b5c;
+}
+
+/* Уведомление о поиске оппонента — текст по центру над уткой */
+.search-notification {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Эффект мигания текста */
+@keyframes pulse {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0.5;
+        transform: scale(1.05);
+    }
+}
+
+/* Контейнер для утки */
+.duck-container {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+}
+
+/* Сама гифка */
+.duck-gif {
+    width: 300%;
+    height: auto;
+    animation: float 2s ease-in-out infinite alternate;
+}
